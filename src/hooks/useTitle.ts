@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react';
 
 import { TextContext } from '$contexts/TextProvider';
 import { CanvasContext } from '$contexts/CanvasProvider';
+import { ColorContext } from '$contexts/ColorProvider';
 
 interface Props {
   canvasRef: React.RefObject<HTMLCanvasElement>;
@@ -9,6 +10,7 @@ interface Props {
 
 export default function useTitle({ canvasRef }: Props) {
   const { title } = useContext(TextContext);
+  const { backgroundColor } = useContext(ColorContext);
   const { setImageData } = useContext(CanvasContext);
 
   useEffect(() => {
@@ -20,6 +22,12 @@ export default function useTitle({ canvasRef }: Props) {
       if (context) {
         // 캔버스 지우기
         context.clearRect(0, 0, canvas.width, canvas.height);
+
+        // 배경색 설정
+        if (backgroundColor) {
+          context.fillStyle = backgroundColor;
+          context.fillRect(0, 0, canvas.width, canvas.height); // 캔버스 전체에 색상 채우기
+        }
 
         // 글자 설정
         const fontSize = 24;
@@ -34,6 +42,7 @@ export default function useTitle({ canvasRef }: Props) {
         const y = canvas.height / 2;
 
         // 텍스트 그리기
+        context.fillStyle = 'black'; // 텍스트 색상
         context.fillText(title, x, y);
 
         // 캔버스를 WebP로 추출
@@ -41,5 +50,5 @@ export default function useTitle({ canvasRef }: Props) {
         setImageData(dataURL);
       }
     }
-  }, [canvasRef, setImageData, title]);
+  }, [backgroundColor, canvasRef, setImageData, title]);
 }

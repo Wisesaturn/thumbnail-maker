@@ -8,22 +8,25 @@ import TextBox from '$components/TextBox';
 
 import TextProvider from '$contexts/TextProvider';
 import CanvasProvider from '$contexts/CanvasProvider';
+import ColorProvider from '$contexts/ColorProvider';
 
 import { ANIMATE_FADE_UP_CONTAINER, ANIMATE_FADE_UP_ITEM } from '$constants/animation';
 
 function App() {
   return (
-    <TextProvider>
-      <CanvasProvider>
-        <motion.main initial="hidden" animate="show" variants={ANIMATE_FADE_UP_CONTAINER}>
-          <motion.h1 className="title" variants={ANIMATE_FADE_UP_ITEM}>
-            🔥 썸네일 메이커 <span>by. 재한</span>
-          </motion.h1>
-          <ImageBox />
-          <TextBox />
-        </motion.main>
-      </CanvasProvider>
-    </TextProvider>
+    <CanvasProvider>
+      <TextProvider>
+        <ColorProvider>
+          <motion.main initial="hidden" animate="show" variants={ANIMATE_FADE_UP_CONTAINER}>
+            <motion.h1 className="title" variants={ANIMATE_FADE_UP_ITEM}>
+              🔥 썸네일 메이커 <span>by. 재한</span>
+            </motion.h1>
+            <ImageBox />
+            <TextBox />
+          </motion.main>
+        </ColorProvider>
+      </TextProvider>
+    </CanvasProvider>
   );
 }
 
