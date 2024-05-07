@@ -1,2 +1,3 @@
-# thumbnail-maker
-따끈따끈 블로그 썸네일용 🔥
+# Thumbnail Maker
+
+[블로그용](https://jaehan.blog) 썸네일 메이커 🔥
