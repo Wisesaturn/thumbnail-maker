@@ -11,6 +11,8 @@ export default defineConfig({
       $styles: path.resolve(__dirname, 'src/styles'),
       $components: path.resolve(__dirname, 'src/components'),
       $libs: path.resolve(__dirname, 'src/libs'),
+      $hooks: path.resolve(__dirname, 'src/hooks'),
+      $contexts: path.resolve(__dirname, 'src/contexts'),
       $constants: path.resolve(__dirname, 'src/constants'),
     },
   },

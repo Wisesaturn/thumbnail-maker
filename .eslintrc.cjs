@@ -96,6 +96,16 @@ module.exports = {
                 position: 'after',
               },
               {
+                pattern: '$hooks/**',
+                group: 'internal',
+                position: 'after',
+              },
+              {
+                pattern: '$contexts/**',
+                group: 'internal',
+                position: 'after',
+              },
+              {
                 pattern: '$constants/**',
                 group: 'internal',
                 position: 'after',

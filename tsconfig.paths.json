@@ -5,6 +5,8 @@
       "$styles/*": ["./styles/*"],
       "$components/*": ["./components/*"],
       "$libs/*": ["./libs/*"],
+      "$hooks/*": ["./hooks/*"],
+      "$contexts/*": ["./contexts/*"],
       "$constants/*": ["./constants/*"],
     },
   }

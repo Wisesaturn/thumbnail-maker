@@ -20,4 +20,44 @@
   height: 250px;
   min-height: 250px;
   box-sizing: border-box;
+  padding: 1rem;
+}
+
+.action-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.input-container {
+  margin: 0.75rem 0;
+  display: flex;
+  gap: 0.35rem;
+  flex-direction: column;
+  width: 300px;
+  min-width: 300px;
+
+  input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #aaa;
+    outline: 0;
+    border-radius: 4px;
+  }
+}
+
+.button-container {
+  button {
+    width: 300px;
+    min-width: 300px;
+    padding: 0.75rem 1rem;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: #eee;
+    }
+  }
 }
