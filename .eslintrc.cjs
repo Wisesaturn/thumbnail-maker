@@ -96,8 +96,14 @@ module.exports = {
                 position: 'after',
               },
               {
+                pattern: '$constants/**',
+                group: 'internal',
+                position: 'after',
+              },
+              {
                 pattern: '$styles/**',
-                group: 'unknown',
+                group: 'internal',
+                position: 'after',
               },
             ],
             'newlines-between': 'always',

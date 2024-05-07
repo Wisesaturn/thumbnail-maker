@@ -1,0 +1,23 @@
+.title {
+  text-align: center;
+  width: 100%;
+  padding-top: 2rem;
+}
+
+.image-box {
+  display: block;
+  width: 1024px;
+  border: 2px solid #eee;
+  height: 500px;
+  min-height: 500px;
+  box-sizing: border-box;
+}
+
+.text-box {
+  display: block;
+  width: 1024px;
+  border: 2px solid #eee;
+  height: 250px;
+  min-height: 250px;
+  box-sizing: border-box;
+}
