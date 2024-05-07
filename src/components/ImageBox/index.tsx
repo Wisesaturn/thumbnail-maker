@@ -1,14 +1,15 @@
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
+import { useContext } from 'react';
 
-import useTitle from '$hooks/useTitle';
+import useThumbnail from '$hooks/useThumbnail';
+
+import { CanvasContext } from '$contexts/CanvasProvider';
 
 import { ANIMATE_FADE_UP_ITEM } from '$constants/animation';
 
 export default function ImageBox() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useTitle({ canvasRef });
+  const { canvasRef } = useContext(CanvasContext);
+  useThumbnail();
 
   return (
     <motion.div className="image-box" variants={ANIMATE_FADE_UP_ITEM}>

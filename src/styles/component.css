@@ -30,6 +30,7 @@
   width: 100%;
   margin: 0 auto;
   padding: 2rem 0;
+  gap: 1.5rem;
 }
 
 .input-container {
@@ -55,6 +56,23 @@
     padding: 0.75rem 1rem;
     border: 1px solid #aaa;
     border-radius: 4px;
+  }
+
+  .button-primary {
+    background-color: #333;
+    color: white;
+    border-color: #333;
+
+    &:hover {
+      background-color: #222;
+      border-color: #222;
+    }
+  }
+
+  .button-secondary {
+    background-color: white;
+    color: black;
+    border-color: #aaa;
 
     &:hover {
       background-color: #eee;

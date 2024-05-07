@@ -4,14 +4,10 @@ import { TextContext } from '$contexts/TextProvider';
 import { CanvasContext } from '$contexts/CanvasProvider';
 import { ColorContext } from '$contexts/ColorProvider';
 
-interface Props {
-  canvasRef: React.RefObject<HTMLCanvasElement>;
-}
-
-export default function useTitle({ canvasRef }: Props) {
+export default function useThumbnail() {
   const { title } = useContext(TextContext);
   const { backgroundColor } = useContext(ColorContext);
-  const { setImageData } = useContext(CanvasContext);
+  const { canvasRef } = useContext(CanvasContext);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -44,11 +40,7 @@ export default function useTitle({ canvasRef }: Props) {
         // 텍스트 그리기
         context.fillStyle = 'black'; // 텍스트 색상
         context.fillText(title, x, y);
-
-        // 캔버스를 WebP로 추출
-        const dataURL = canvas.toDataURL('image/webp');
-        setImageData(dataURL);
       }
     }
-  }, [backgroundColor, canvasRef, setImageData, title]);
+  }, [backgroundColor, canvasRef, title]);
 }
