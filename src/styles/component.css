@@ -7,7 +7,6 @@
 .image-box {
   display: block;
   width: 1024px;
-  border: 2px solid #eee;
   height: 500px;
   min-height: 500px;
   box-sizing: border-box;
@@ -76,6 +75,48 @@
 
     &:hover {
       background-color: #eee;
+    }
+  }
+}
+
+.dropdown-container {
+  .dropdown-label {
+    padding-bottom: 0.25rem;
+  }
+
+  button {
+    display: flex;
+    justify-content: space-around;
+    width: 160px;
+    min-width: 160px;
+    padding: 0.75rem 1rem;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    vertical-align: middle;
+  }
+
+  ul {
+    margin-top: 0.75rem;
+    width: 160px;
+    max-width: 160px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #eee;
+
+    li {
+      width: calc(150px - 1.5rem);
+      padding: 0.75rem 1rem;
+      background-color: #fff;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      + li {
+        border-top: 1px solid #eee;
+      }
     }
   }
 }

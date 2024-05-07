@@ -5,7 +5,7 @@ import { CanvasContext } from '$contexts/CanvasProvider';
 import { ColorContext } from '$contexts/ColorProvider';
 
 export default function useThumbnail() {
-  const { title } = useContext(TextContext);
+  const { title, font } = useContext(TextContext);
   const { backgroundColor } = useContext(ColorContext);
   const { canvasRef } = useContext(CanvasContext);
 
@@ -27,8 +27,8 @@ export default function useThumbnail() {
 
         // 글자 설정
         const fontSize = 24;
-        const font = `${fontSize}px Arial`;
-        context.font = font;
+        const fontInfo = `${fontSize}px ${font}`;
+        context.font = fontInfo;
 
         // 글자 중앙 정렬
         context.textAlign = 'center';
@@ -42,5 +42,5 @@ export default function useThumbnail() {
         context.fillText(title, x, y);
       }
     }
-  }, [backgroundColor, canvasRef, title]);
+  }, [backgroundColor, canvasRef, font, title]);
 }

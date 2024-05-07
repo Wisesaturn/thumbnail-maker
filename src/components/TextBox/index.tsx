@@ -3,6 +3,7 @@ import { useContext } from 'react';
 
 import Input from '$components/Input';
 import Button from '$components/Button';
+import Dropdown from '$components/Dropdown';
 
 import getThumbnail from '$libs/getThumbnail';
 
@@ -12,7 +13,7 @@ import { CanvasContext } from '$contexts/CanvasProvider';
 import { ANIMATE_FADE_UP_ITEM } from '$constants/animation';
 
 export default function TextBox() {
-  const { title, setTitle } = useContext(TextContext);
+  const { title, setTitle, font, setFont, fonts } = useContext(TextContext);
   const { imageData, setImageData, canvasRef } = useContext(CanvasContext);
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,13 +37,14 @@ export default function TextBox() {
           value={title}
           onChange={handleTitleChange}
         />
+        <Dropdown label="폰트" menuItems={fonts} handleSelectedItem={setFont} selectedItem={font} />
       </motion.div>
       <motion.div className="action-box" variants={ANIMATE_FADE_UP_ITEM}>
         <Button hierarchy="secondary" onClick={handleMakingThumbnail}>
           만들기
         </Button>
         {imageData && (
-          <a href={imageData} download="image.webp">
+          <a href={imageData} download={`${title}.webp`}>
             <Button>다운로드</Button>
           </a>
         )}
