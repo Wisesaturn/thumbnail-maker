@@ -11,9 +11,10 @@ import { TextContext } from '$contexts/TextProvider';
 import { CanvasContext } from '$contexts/CanvasProvider';
 
 import { ANIMATE_FADE_UP_ITEM } from '$constants/animation';
+import FONTS from '$constants/font';
 
 export default function TextBox() {
-  const { title, setTitle, font, setFont, fonts } = useContext(TextContext);
+  const { title, setTitle, font, setFont } = useContext(TextContext);
   const { imageData, setImageData, canvasRef } = useContext(CanvasContext);
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,7 +38,7 @@ export default function TextBox() {
           value={title}
           onChange={handleTitleChange}
         />
-        <Dropdown label="폰트" menuItems={fonts} handleSelectedItem={setFont} selectedItem={font} />
+        <Dropdown label="폰트" menuItems={FONTS} handleSelectedItem={setFont} selectedItem={font} />
       </motion.div>
       <motion.div className="action-box" variants={ANIMATE_FADE_UP_ITEM}>
         <Button hierarchy="secondary" onClick={handleMakingThumbnail}>

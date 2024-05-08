@@ -1,20 +1,25 @@
 import { useState } from 'react';
 
-interface Props {
+interface Props<T> {
   label?: string;
-  selectedItem: string;
-  menuItems: string[];
-  handleSelectedItem: (_v: string) => void;
+  selectedItem: T;
+  menuItems: T[];
+  handleSelectedItem: (_v: T) => void;
 }
 
-export default function Dropdown({ label, selectedItem, handleSelectedItem, menuItems }: Props) {
+export default function Dropdown<T extends string>({
+  label,
+  selectedItem,
+  handleSelectedItem,
+  menuItems,
+}: Props<T>) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleItemClick = (item: string) => {
+  const handleItemClick = (item: T) => {
     handleSelectedItem(item);
     setIsOpen(false);
   };
